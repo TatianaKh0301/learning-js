@@ -14,6 +14,12 @@ const products = [
     console.log("propName", propName);
     
         for (const product of products) {
+          if (!(propName in product)) {
+            console.log("такого свойства нет")
+            break;
+          }
+                // console.log("product", product);
+                // console.log("!propName in product", !(propName in product));
                 prodAr = (product[propName]);
                 console.log(prodAr);
                 array.push(prodAr);
@@ -27,6 +33,6 @@ const products = [
 
 
   getAllPropValues("name");
-//   getAllPropValues("quantity");
-//   getAllPropValues("price");
-//   getAllPropValues("category");
+  getAllPropValues("quantity");
+  getAllPropValues("price");
+  getAllPropValues("category");
