@@ -25,30 +25,56 @@ const atTheOldToad = {
     ],
     // Change code below this line
     getPotions() {
-      console.log("this.potions", this.potions);
-      for (const potion of this.potions) {
-        console.log("potion", potion);
-      }
-      console.log("atTheOldToad.potions", atTheOldToad.potions);
       return this.potions;
     },
-  //   addPotion(newPotion) {
+    addPotion(newPotion) {
   //  xxxx   if (this.potions.includes(newPotion)) {
   //       return `Error! Potion ${newPotion} is already in your inventory!`;
   //     }
-  
-  //     this.potions.push(newPotion);
-  //   },
-    // removePotion(potionName) {
-    //   const potionIndex = this.potions.indexOf(potionName);
-  
+      for (const potion of this.potions) {
+        // console.log("potion.name", potion.name);
+        // console.log("newPotion.name", newPotion.name);
+        if(potion.name === newPotion.name) {
+          // console.log("error");
+          const msg= console.log(`Error! Potion ${newPotion.name} is already in your inventory!`);
+          return msg;
+        }
+      }
+      // console.log("newPotion", newPotion);
+      this.potions.push(newPotion);
+      // console.log(this.potions);
+    },
+    removePotion(potionName) {
+      console.log("potionName", potionName);
+      for (let index = 0; index < this.potions.length; index += 1) {
+        console.log("posions", this.potions[index]);
+        if(this.potions[index].name === potionName) {
+          console.log("Есть совпадение!!!");
+          console.log(index);
+          this.potions.splice(index, 1);
+        }
+      }
+      console.log(this.potions);
+      // const potionIndex = this.potions.name.indexOf(potionName);
+      // console.log("potionIndex", potionIndex);
     //   if (potionIndex === -1) {
     //     return `Potion ${potionName} is not in inventory!`;
     //   }
   
     //   this.potions.splice(potionIndex, 1);
-    // },
-    // updatePotionName(oldName, newName) {
+    },
+    updatePotionName(oldName, newName) {
+      console.log("oldName", oldName);
+      console.log("newName", newName);
+      for (let index = 0; index < this.potions.length; index += 1) {
+        console.log("posions", this.potions[index]);
+        if(this.potions[index].name === oldName) {
+          console.log("Есть совпадение!!!");
+          console.log(index);
+          this.potions[index].name = newName;
+        }
+      }
+      console.log(this.potions);
     //   const potionIndex = this.potions.indexOf(oldName);
   
     //   if (potionIndex === -1) {
@@ -56,9 +82,12 @@ const atTheOldToad = {
     //   }
   
     //   this.potions.splice(potionIndex, 1, newName);
-    // },
+    },
     // Change code above this line
   };
   
   
-  atTheOldToad.getPotions();
+  // atTheOldToad.getPotions();
+  // atTheOldToad.addPotion({ name: "Speed potion", price: 460 });
+  // atTheOldToad.removePotion("Stone skin");
+  atTheOldToad.updatePotionName("Dragon breath", "Polymorth");

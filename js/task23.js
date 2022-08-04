@@ -32,7 +32,7 @@ const pizzaPalace = {
                 } 
             }
             onError(pizzaName);
-            return(pizzaName);
+            return pizzaName;
             
             
     },        
